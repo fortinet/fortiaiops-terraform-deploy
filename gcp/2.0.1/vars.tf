@@ -32,6 +32,12 @@ variable "image" {
   default = "projects/fortigcp-project-001/global/images/fortiaiops-201-build0163-lic"
 }
 
+# Increase the secondary disk if needed.
+variable "SecondaryDiskSize" {
+  type    = number
+  default = "500"
+}
+
 # GCP instance machine type
 variable "machine" {
   type    = string
@@ -42,4 +48,10 @@ variable "machine" {
 variable "public_subnet" {
   type    = string
   default = "172.16.0.0/24"
+}
+
+# Enter the Reserved External IP if there is to attach already existing, if not Public IP will be picked up from DHCP
+variable "ExistingPublicIPName" {
+  type    = string
+  default = "" 
 }

@@ -30,7 +30,7 @@ resource "random_string" "random_name_post" {
 # Create data disk
 resource "google_compute_disk" "datadisk" {
   name = "data-disk-${random_string.random_name_post.result}"
-  size = 500
+  size = var.SecondaryDiskSize
   type = "pd-standard"
   zone = var.zone
 }
@@ -74,6 +74,11 @@ resource "google_compute_firewall" "allow-fortiaiops" {
   target_tags   = ["allow-fortiaiops"]
 }
 
+data "google_compute_address" "ExistingPublicIP" {
+  count = var.ExistingPublicIPName != "" ? 1 : 0
+  name = var.ExistingPublicIPName
+}
+
 # Create FortiAIOps compute instance
 resource "google_compute_instance" "default" {
   name           = "fortiaiops-${random_string.random_name_post.result}"
@@ -99,6 +104,7 @@ resource "google_compute_instance" "default" {
   network_interface {
     subnetwork = google_compute_subnetwork.public_subnet.name
     access_config {
+      nat_ip = var.ExistingPublicIPName != "" ? data.google_compute_address.ExistingPublicIP[0].address : null
     }
   }
   service_account {

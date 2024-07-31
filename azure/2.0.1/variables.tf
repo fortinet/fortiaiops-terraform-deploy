@@ -45,7 +45,7 @@ variable "ExistingPublicIPName" {
 
 //  Secondary Disk size
 variable "SecondaryDisk" {
-  type    = string
+  type    = number
   default = "500"
 }
 
