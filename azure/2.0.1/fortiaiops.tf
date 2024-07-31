@@ -39,7 +39,7 @@ resource "azurerm_virtual_machine" "customfortiaiopsVM" {
     managed_disk_type = "Standard_LRS"
     create_option     = "Empty"
     lun               = 0
-    disk_size_gb      = "500"
+    disk_size_gb      = var.SecondaryDisk
   }
 
   os_profile {
@@ -102,7 +102,7 @@ resource "azurerm_virtual_machine" "fortiaiopsVM" {
     managed_disk_type = "Standard_LRS"
     create_option     = "Empty"
     lun               = 0
-    disk_size_gb      = "100"
+    disk_size_gb      = var.SecondaryDisk
   }
 
   os_profile {

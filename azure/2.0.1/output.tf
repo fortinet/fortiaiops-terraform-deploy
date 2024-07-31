@@ -3,6 +3,5 @@ output "ResourceGroup" {
 }
 
 output "FortiAIOpsPublicIP" {
-  value = format("https://%s", azurerm_public_ip.FortiAIOpsPublicIP.ip_address)
+  value = format("https://%s", var.ExistingPublicIPName.name == "" ? azurerm_public_ip.FortiAIOpsPublicIP[0].ip_address : data.azurerm_public_ip.ExistingPublicIP[0].ip_address)
 }
-

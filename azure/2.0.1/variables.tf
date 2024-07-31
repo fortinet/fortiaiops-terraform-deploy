@@ -6,7 +6,7 @@ variable "tenant_id" {}
 
 variable "size" {
   type    = string
-  default = "Standard_D4ds_v5"
+  default = "Standard_E4as_v5"
 }
 
 // To use custom image
@@ -28,10 +28,25 @@ variable "custom_image_name" {
   default = "<Custom image name>"
 }
 
-//  Custom image ResourceGroup
+//  Select existing ResourceGroup to store Custom image ResourceGroup
 variable "custom_image_resource_group_name" {
   type    = string
   default = "<Custome image ResourceGroup>"
+}
+
+//  Please provied the Existing PublicIP name and ResourceGroup in same region if any, by default new PublicIP will be created if not changed.
+variable "ExistingPublicIPName" {
+  type    = map(string)
+  default = {
+    name = ""
+    ResourceGroup = ""
+  }
+}
+
+//  Secondary Disk size
+variable "SecondaryDisk" {
+  type    = string
+  default = "500"
 }
 
 // License Type to create FortiAIOps-VM
@@ -51,7 +66,7 @@ variable "fortiaiopsoffer" {
 
 variable "fortiaiopsversion" {
   type    = string
-  default = "1.3.0"
+  default = "2.0.1"
 }
 
 variable "adminusername" {

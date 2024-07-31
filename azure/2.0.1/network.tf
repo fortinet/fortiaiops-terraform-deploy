@@ -18,8 +18,15 @@ resource "azurerm_subnet" "publicsubnet" {
   address_prefixes     = [var.publiccidr]
 }
 
+data "azurerm_public_ip" "ExistingPublicIP" {
+  count               = var.ExistingPublicIPName.name != "" ? 1 : 0
+  name                = var.ExistingPublicIPName.name
+  resource_group_name = var.ExistingPublicIPName.ResourceGroup
+}
+
 // Allocated Public IP
 resource "azurerm_public_ip" "FortiAIOpsPublicIP" {
+  count               = var.ExistingPublicIPName.name != "" ? 0 : 1
   name                = "FortiAIOpsPublicIP"
   location            = var.location
   resource_group_name = azurerm_resource_group.myterraformgroup.name
@@ -79,7 +86,7 @@ resource "azurerm_network_interface" "fortiaiopsport1" {
     subnet_id                     = azurerm_subnet.publicsubnet.id
     private_ip_address_allocation = "Dynamic"
     primary                       = true
-    public_ip_address_id          = azurerm_public_ip.FortiAIOpsPublicIP.id
+    public_ip_address_id          = var.ExistingPublicIPName.name == "" ? azurerm_public_ip.FortiAIOpsPublicIP[0].id : data.azurerm_public_ip.ExistingPublicIP[0].id
   }
 
   tags = {
@@ -93,4 +100,3 @@ resource "azurerm_network_interface_security_group_association" "port1nsg" {
   network_interface_id      = azurerm_network_interface.fortiaiopsport1.id
   network_security_group_id = azurerm_network_security_group.publicnetworknsg.id
 }
-
