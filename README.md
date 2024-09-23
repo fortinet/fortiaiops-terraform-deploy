@@ -2,7 +2,6 @@
 ## Introduction
 This project includes a set of terraform scripts for getting started with different cloud-providers with Fortinet.
 
-* [AWS](https://github.com/fortinet/fortiaiops-terraform-deploy/tree/main/aws)
 * [GCP](https://github.com/fortinet/fortiaiops-terraform-deploy/tree/main/gcp)
 * [AZURE](https://github.com/fortinet/fortiaiops-terraform-deploy/tree/main/azure)
 

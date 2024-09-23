@@ -71,7 +71,7 @@ variable "fortiaiopsoffer" {
 
 variable "fortiaiopsversion" {
   type    = string
-  default = "2.0.1"
+  default = "2.0.2"
 }
 
 variable "adminusername" {
