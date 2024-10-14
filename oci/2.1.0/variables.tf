@@ -61,5 +61,5 @@ variable "availability_domain" {
 
 variable "volume_size" {
   type    = string
-  default = "50" //GB; you can modify this, can't less than 50
+  default = "500" //GB; Secondary Data Disk
 }
