@@ -29,7 +29,7 @@ variable "ftntproject" {
 
 variable "image" {
   type    = string
-  default = "projects/fortigcp-project-001/global/images/fortiaiops-201-build0163-lic"
+  default = "projects/fortigcp-project-001/global/images/fortiaiops-210-build0313-lic"
 }
 
 # Increase the secondary disk if needed.
