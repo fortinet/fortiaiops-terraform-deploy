@@ -1,4 +1,4 @@
-# Deployment of a single FortiAIOps-VM on the Oracle Cloud Infrastructure (OCI)
+# Deployment of FortiAIOps-VM on the Oracle Cloud Infrastructure (OCI)
 ## Introduction
 A Terraform script to deploy a single FortiAIOps-VM on OCI
 
