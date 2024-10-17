@@ -17,7 +17,7 @@ Terraform deploys the following :
 ## Deployment
 To deploy the FortiAIOps-VM to OCI:
 1. Clone the repository.
-2. Move the OCI API key and FortiAIOps-VM license file to the same folder
+2. Move the OCI API key file to the same folder
 3. Customize variables in the `terraform.tfvars.example` and `variables.tf` file as needed.  And rename `terraform.tfvars.example` to `terraform.tfvars`.
 5. Initialize the providers and modules:
    ```sh
