@@ -5,6 +5,7 @@ This project includes a set of terraform scripts for getting started with differ
 * [GCP](https://github.com/fortinet/fortiaiops-terraform-deploy/tree/main/gcp)
 * [AZURE](https://github.com/fortinet/fortiaiops-terraform-deploy/tree/main/azure)
 * [OCI](https://github.com/fortinet/fortiaiops-terraform-deploy/tree/main/oci)
+* [AWS](https://github.com/fortinet/fortiaiops-terraform-deploy/tree/main/aws)
 
 ## Support
 Fortinet-provided scripts in this and other GitHub projects do not fall under the regular Fortinet technical support scope and are not supported by FortiCare Support Services.
