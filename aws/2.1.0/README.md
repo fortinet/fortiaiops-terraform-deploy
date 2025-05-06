@@ -1,4 +1,4 @@
-# Deployment of a FortiAIOps-VM (BYOL/PAYG)  on the AWS
+# Deployment of a FortiAIOps-VM (BYOL) on the AWS
 ## Introduction
 A Terraform script to deploy a FortiAIOps-VM on AWS
 
